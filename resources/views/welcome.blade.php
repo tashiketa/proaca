@@ -17,7 +17,7 @@
             </div>
         </div>
     @else
-        {!! link_to_route('toppage', '会員登録', [], ['class' => 'btn btn-lg btn-primary']) !!}
-        {!! link_to_route('toppage', 'ログイン', [], ['class' => 'btn btn-lg btn-primary']) !!}
+        {!! link_to_route('signup.get', '会員登録', [], ['class' => 'btn btn-lg btn-primary']) !!}
+        {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary']) !!}
     @endif
 @endsection
