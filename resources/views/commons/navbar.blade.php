@@ -9,15 +9,14 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                <li class="nav-item">{!! link_to_route('toppage', 'ランキング', [], ['class' => 'nav-link']) !!}</li>
+                <li class="nav-item">{!! link_to_route('ranking', 'ランキング', [], ['class' => 'nav-link']) !!}</li>
                 @if (Auth::check())
-                    <li class="nav-item">{!! link_to_route('toppage', 'Users', [], ['class' => 'nav-link']) !!}</li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li class="dropdown-item">{!! link_to_route('toppage', 'お気に入り', ['id' => Auth::id()]) !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('users', 'お気に入り', ['id' => Auth::id()]) !!}</li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-item">{!! link_to_route('toppage', 'ログアウト') !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                         </ul>
                     </li>
                 @else
