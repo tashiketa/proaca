@@ -4,6 +4,7 @@
     @foreach ($teams as $team)
         <li class="media mb-3 list-group-item">
             <div class="media-body">
+                <img src='/storage/teams/{{ $team->emblem }}'>
                 <div>
                     {!! link_to_route('players', $team->name, ['id' => $team->id]) !!}
                 </div>
