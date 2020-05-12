@@ -34,7 +34,7 @@ class ProacaController extends Controller
     public function players($id)
     {
         $team = \App\Team::find($id);
-        $players = \App\Player::where('team_id', $id)->get();
+        $players = \App\Player::where('team_id', $id)->orderBy('number')->get();
         
         $data = [
             'team' => $team,

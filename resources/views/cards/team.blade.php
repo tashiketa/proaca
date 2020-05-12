@@ -1,10 +1,8 @@
-<div class='container'>
-<div class="row">
 <ul class='list-unstyled list-group list-group-horizontal'>
     @foreach ($teams as $team)
         <li class="media mb-3 list-group-item">
+            <img src='/storage/teams/{{ $team->emblem }}'>
             <div class="media-body">
-                <img src='/storage/teams/{{ $team->emblem }}'>
                 <div>
                     {!! link_to_route('players', $team->name, ['id' => $team->id]) !!}
                 </div>
@@ -15,5 +13,3 @@
         </li>
     @endforeach
 </ul>
-</div>
-</div>

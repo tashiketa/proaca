@@ -1,6 +1,7 @@
-<ul class='list-unstyled list-group list-group-horizontal'>
+<ul class='list-unstyled list-inline'>
     @foreach ($players as $player)
-        <li class="media mb-3 list-group-item">
+        <li class='media mb-3 list-inline-item'>
+            <img src='/storage/players/{{ $player->team_id }}/{{ $player->photo }}'>
             <div class="media-body">
                 <div>
                     {!! $player->number !!}
