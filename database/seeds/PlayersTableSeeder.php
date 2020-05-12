@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class PlayersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            TeamsTableSeeder::class,
-            PlayersTableSeeder_giants::class,
+        DB::table('players')->insert([
+            
+            
         ]);
     }
 }

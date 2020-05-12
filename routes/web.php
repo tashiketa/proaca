@@ -23,4 +23,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('users', 'ProacaController@users')->name('users');
+    Route::get('{id}/players', 'ProacaController@players')->name('players');
 });

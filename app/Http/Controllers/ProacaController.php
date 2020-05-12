@@ -30,4 +30,17 @@ class ProacaController extends Controller
     {
         return view('ranking');
     }
+    
+    public function players($id)
+    {
+        $team = \App\Team::find($id);
+        $players = \App\Player::where('team_id', $id)->get();
+        
+        $data = [
+            'team' => $team,
+            'players' => $players,
+        ];
+        
+        return view('players', $data);
+    }
 }

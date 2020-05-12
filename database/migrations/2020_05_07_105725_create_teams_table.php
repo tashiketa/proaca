@@ -18,7 +18,6 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('home');
             $table->string('emblem');
-            $table->timestamps();
         });
     }
 

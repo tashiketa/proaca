@@ -19,7 +19,6 @@ class CreatePlayersTable extends Migration
             $table->string('photo');
             $table->integer('team_id')->unsigned()->index();
             $table->integer('number');
-            $table->timestamps();
         });
     }
 

@@ -13,9 +13,7 @@
     </div>
     </div>
     @if (Auth::check())
-        <div class="row">
-            @include('cards.teams', ['teams' => $teams])
-        </div>
+        @include('cards.team', ['teams' => $teams])
     @else
         <div class="text-center">
             {!! link_to_route('signup.get', '会員登録', [], ['class' => 'btn btn-lg btn-primary']) !!}
