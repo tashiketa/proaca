@@ -24,4 +24,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('users', 'ProacaController@users')->name('users');
     Route::get('{id}/players', 'ProacaController@players')->name('players');
+    
+    Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('favorite', 'FavoriteController@store')->name('user.favorite');
+        Route::delete('unfavorite', 'FavoriteController@destroy')->name('user.unfavorite');
+    });
 });

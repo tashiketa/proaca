@@ -26,4 +26,38 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function favorites()
+    {
+        return $this->belongsToMany(Player::class, 'favorites', 'user_id', 'player_id')->withTimestamps();
+    }
+    
+    public function is_favoriting($playerId)
+    {
+        return $this->favorites()->where('player_id', $playerId)->exists();
+    }
+    
+    public function favorite($playerId)
+    {
+        $exist = $this->is_favoriting($playerId);
+        
+        if ($exist) {
+            return false;
+        } else {
+            $this->favorites()->attach($playerId);
+            return true;
+        }
+    }
+    
+    public function unfavorite($playerId)
+    {
+        $exist = $this->is_favoriting($playerId);
+        
+        if ($exist) {
+            $this->favorites()->detach($playerId);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

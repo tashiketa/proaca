@@ -23,7 +23,9 @@ class ProacaController extends Controller
     
     public function users()
     {
-        return view('users');
+        $user = \Auth::user();
+        $players = $user->favorites()->get();
+        return view('users', ['players' => $players]);
     }
     
     public function ranking()

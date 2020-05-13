@@ -14,4 +14,9 @@ class Player extends Model
     {
         return $this->belongsTo(Team::class);
     }
+    
+    public function favoriteds()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'player_id', 'user_id')->withTimestamps();
+    }
 }
