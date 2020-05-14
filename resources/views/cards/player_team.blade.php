@@ -1,6 +1,6 @@
 <ul class='list-unstyled list-inline'>
     @foreach ($players as $player)
-        <li class='media mb-3 list-inline-item'>
+        <li class='media mb-3 list-inline-item' id='card'>
             <img src='/storage/players/{{ $player->team_id }}/{{ $player->photo }}'>
             <div class="media-body">
                 <div>
@@ -11,11 +11,11 @@
                 </div>
                 @if (Auth::user()->is_favoriting($player->id))
                     {!! Form::open(['route' => ['user.unfavorite', $player->id], 'method' => 'delete']) !!}
-                        {!! Form::submit('お気に入りを外す', ['class' => "btn btn-danger btn-block"]) !!}
+                        {!! Form::submit('お気に入りを外す', ['class' => "btn btn-danger btn-sm"]) !!}
                     {!! Form::close() !!}
                 @else
                     {!! Form::open(['route' => ['user.favorite', $player->id]]) !!}
-                        {!! Form::submit('お気に入りする', ['class' => "btn btn-primary btn-block"]) !!}
+                        {!! Form::submit('お気に入りする', ['class' => "btn btn-primary btn-sm"]) !!}
                     {!! Form::close() !!}
                 @endif
             </div>

@@ -21,16 +21,35 @@ class ProacaController extends Controller
         return view('welcome', $data);
     }
     
+    public function ranking()
+    {
+        $players = \App\Player::all();
+        $player1 = \App\Player::find(1); 
+        $player2 = \App\Player::find(2); 
+        $player3 = \App\Player::find(3);
+        
+        foreach ($players as $player) {
+            if ($player->count() > $player1->count()) {
+                $player1 = $player;
+            } elseif ($player->count() > $player2->count() && $player != $player1) {
+                $player2 = $player;
+            } elseif ($player->count() > $player3->count() && $player != $player1 && $player != $player2) {
+                $player3 = $player;
+            } 
+        }
+        $data = [
+            'player1' => $player1,
+            'player2' => $player2,
+            'player3' => $player3,
+        ];
+        return view('ranking', $data);
+    }
+    
     public function users()
     {
         $user = \Auth::user();
         $players = $user->favorites()->get();
         return view('users', ['players' => $players]);
-    }
-    
-    public function ranking()
-    {
-        return view('ranking');
     }
     
     public function players($id)

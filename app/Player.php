@@ -19,4 +19,9 @@ class Player extends Model
     {
         return $this->belongsToMany(User::class, 'favorites', 'player_id', 'user_id')->withTimestamps();
     }
+    
+    public function count()
+    {
+        return $this->favoriteds()->count();
+    }
 }
